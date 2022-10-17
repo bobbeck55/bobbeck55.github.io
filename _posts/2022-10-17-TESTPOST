@@ -2,5 +2,5 @@ layout: post
 title: "TEST POST TITLE"
 date: 2022-10-17 10:51:00 -0000
 categories: CATEGORY-1 CATEGORY-2
-unpublished: false
+published: true
 POST TEST 1
