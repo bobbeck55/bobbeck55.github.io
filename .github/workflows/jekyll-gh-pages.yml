@@ -24,6 +24,9 @@ jobs:
   # Build job
   testpush:
     runs-on: ubuntu-latest
+  steps:
+    - name: name
+      id: id
 
   # Deployment job
   deploy:
