@@ -24,10 +24,10 @@ jobs:
   # Build job
   testpush:
     runs-on: ubuntu-latest
-  steps:
-    - name: Deploy to GitHub Pages
-    id: deployment
-    uses: actions/deploy-pages@v1
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 
   # Deployment job
   deploy:
