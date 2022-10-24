@@ -23,7 +23,7 @@ concurrency:
 jobs:
   push_test:
     steps:
-      run echo "push job"
+      - runs: echo "push job"
   # Build job
   build:
     - runs-on: ubuntu-latest
