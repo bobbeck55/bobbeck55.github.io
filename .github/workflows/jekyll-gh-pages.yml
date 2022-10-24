@@ -11,7 +11,7 @@ on:
   
   schedule:
     # Runs "At 11:00 on every day-of-week from Monday through Friday"
-    - cron: '24 * * * 1-5'
+    - cron: '26 * * * 1-5'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
