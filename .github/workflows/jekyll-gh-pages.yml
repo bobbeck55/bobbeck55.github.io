@@ -22,8 +22,10 @@ concurrency:
 
 jobs:
   push_test:
+    - runs-on: ubuntu-latest
     steps:
-      - runs: echo "push job"
+      - name: hello world
+        run: (echo run worked!)
   # Build job
   build:
     - runs-on: ubuntu-latest
