@@ -21,6 +21,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  push_test:
+    steps:
+      echo "push job"
   # Build job
   build:
     runs-on: ubuntu-latest
