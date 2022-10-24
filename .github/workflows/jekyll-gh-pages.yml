@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   # Build job
-  testpush:
+  print-test:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
