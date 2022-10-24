@@ -24,7 +24,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  push_test:
+  pushtest:
     - runs-on: ubuntu-latest
     steps:
       - name: helloworld
