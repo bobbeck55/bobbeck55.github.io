@@ -25,7 +25,9 @@ jobs:
   testpush:
     runs-on: ubuntu-latest
   steps:
-    - name: helloworld
+    - name: Deploy to GitHub Pages
+    id: deployment
+    uses: actions/deploy-pages@v1
 
   # Deployment job
   deploy:
