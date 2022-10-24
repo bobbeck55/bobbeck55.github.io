@@ -26,6 +26,8 @@ concurrency:
 jobs:
   pushtest:
     name: pushtest
+    - runs-on: ubuntu-latest
+    
   # Build job
   build:
     - runs-on: ubuntu-latest
