@@ -25,9 +25,8 @@ jobs:
   print-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Print the input name to STDOUT
+        run: echo HelloWorld
 
   # Deployment job
   deploy:
