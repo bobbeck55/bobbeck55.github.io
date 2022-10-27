@@ -2,6 +2,8 @@
 
 End to End Test Suite
 
+HELLO WORLD
+
 <select id="month" onchange="setMonth()">
         <option selected disabled>Choose one</option>
         <option value="Jan">Jan</option>
