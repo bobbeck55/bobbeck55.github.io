@@ -53,6 +53,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <p>End to End Test Suite</p>
 <p>HELLO WORLD</p>
+<p><select id="month" onchange="setMonth()">
+        <option selected disabled>Choose one</option>
+        <option value="Jan">Jan</option>
+        <option value="Feb">Feb</option>
+        ...
+        <option value="Oct">Oct</option>
+        <option value="Nov">Nov</option>
+        <option value="Dec">Dec</option>
+</select></p>
+<script>
+var month;
+function setMonth(){
+  month = document.getElementById('month').value;
+  alert(month);
+}
+
+</script>
 
   <br>
     
