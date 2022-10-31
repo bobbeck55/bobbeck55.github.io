@@ -1,5 +1,5 @@
 
-function xhr_test(){
+function end_to_end(){
 
    //month = document.getElementById('month').value;
    alert("hello world");
