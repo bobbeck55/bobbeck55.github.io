@@ -12,8 +12,7 @@ on:
         default: 2
 
 jobs:
-  setup:
-    name: Setup Azure VM
+    build:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
