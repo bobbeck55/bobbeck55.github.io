@@ -25,8 +25,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo "ONE" > new_file.txt
-    - name: switching from HTTPS to SSH
-      run: git remote set-url origin https://github.com/bobbeck55/bobbeck55.github.io.git
     - name: git config1
       run: git config --global user.email "bob_beck@sil.org"
     - name: git config2
