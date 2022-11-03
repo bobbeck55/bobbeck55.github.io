@@ -26,7 +26,7 @@ jobs:
     - name: Run a one-line script
       run: echo "ONE"
     - name: switching from HTTPS to SSH
-      run: git remote set-url origin ${{ secrets.ssh }}
+      run: git remote set-url origin https://github.com/bobbeck55/bobbeck55.github.io.git
     - name: check for changes
       run: git status
     - name: stage changed files
