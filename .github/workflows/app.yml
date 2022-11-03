@@ -16,9 +16,9 @@ jobs:
     name: Setup Azure VM
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
-- name: Run a one-line script
-  run: python ./.github/workflows/todo_List.py
+    - uses: actions/checkout@v1
+   - name: Run a one-line script
+     run: python ./.github/workflows/todo_List.py
 - name: switching from HTTPS to SSH
   run: git remote set-url origin ${{ secrets.ssh }}
 - name: check for changes
