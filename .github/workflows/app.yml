@@ -10,10 +10,10 @@ on:
         description: 'Virtual Machine Count'     
         required: true-
         default: 2
-
 jobs:
-    build:
-      runs-on: windows-latest
+  setup:
+    name: Setup Azure VM
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
@@ -30,3 +30,8 @@ jobs:
       run: git fetch origin master
     - name: push code to master
       run: git push origin HEAD:master
+    - name: echo inputs
+      run:
+        $vmSku = "${{ github.event.inputs.vmSku }}"
+        $vmCount = ${{ github.event.inputs.vmCount }}
+        echo "vmSku: $vmSku, vmCount: $vmCount"
