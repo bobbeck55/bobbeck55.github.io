@@ -31,9 +31,5 @@ jobs:
       run: git fetch origin master
     - name: push code to master
       run: git push origin HEAD:master
-    - name: Create virtual machine(s)
-      run: |
-        $vmSku = "${{ github.event.inputs.vmSku }}"
-        $vmCount = ${{ github.event.inputs.vmCount }}
-        echo "vmSku: $vmSku,  vmCount: $vmCount"
+
 
