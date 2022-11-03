@@ -31,7 +31,6 @@ jobs:
     - name: push code to master
       run: git push origin HEAD:master
     - name: echo inputs
-      run:
-        $vmSku = "${{ github.event.inputs.vmSku }}"
-        $vmCount = ${{ github.event.inputs.vmCount }}
-        echo "vmSku: $vmSku, vmCount: $vmCount"
+      run: $vmSku = "${{ github.event.inputs.vmSku }}"
+      run: $vmCount = ${{ github.event.inputs.vmCount }}
+      run: echo "vmSku: $vmSku, vmCount: $vmCount"
