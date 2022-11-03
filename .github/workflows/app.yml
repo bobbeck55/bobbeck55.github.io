@@ -1,16 +1,33 @@
 on:
   push:
+    branches: [master]
+    
   workflow_dispatch:
-    inputs:
-      vmSku:
-        description: 'Virtual Machine SKU'     
-        required: true
-        default: 'Standard_B2ms'
-      vmCount:
-        description: 'Virtual Machine Count'     
-        required: true-
-        default: 2
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
+  # Build job
+  one:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Echo in file"
+      run: echo "HELLOWORLD" > "secrets.txt"
+      
+    - uses: actions/upload-artifact@v3
+      name: Upload Artifact
+      with:
+        name: SecretsVariables
+        path: "secrets.txt"
   setup:
     name: Setup Azure VM
     runs-on: windows-latest
