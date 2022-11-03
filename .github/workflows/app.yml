@@ -31,5 +31,3 @@ jobs:
       run: git fetch origin master
     - name: push code to master
       run: git push origin HEAD:master
-
-
