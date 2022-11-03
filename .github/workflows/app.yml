@@ -35,5 +35,5 @@ jobs:
       run:
         $vmSku = "${{ github.event.inputs.vmSku }}"
         $vmCount = ${{ github.event.inputs.vmCount }}
-        echo "vmSku: $vmSku, vmCount: $vmCount"
+        echo "vmSku: $vmSku,  vmCount: $vmCount"
 
