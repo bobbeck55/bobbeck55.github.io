@@ -26,9 +26,9 @@ jobs:
     - name: Run a one-line script
       run: echo "ONE" > new_file.txt
     - name: git config1
-      run: git config --global user.email "bob_beck@sil.org"
+      run: git config user.name github-actions
     - name: git config2
-      run: git config --global user.name "Bob Beck"
+      run: git config user.email github-actions@github.com
     - name: git status
       run: git status
     - name: stage changed files
