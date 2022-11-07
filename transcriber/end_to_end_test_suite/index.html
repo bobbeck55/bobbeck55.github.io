@@ -79,9 +79,21 @@ function end_to_end_write(){
 
 
    var auth="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";
+
+   alert("after auth set");
+
    var headers = @{"Accept"="application/vnd.github.v3+json"; "Authorization"="token ${auth}"};
+
+   alert("after headers set");
+
    var payload = @{ "ref"="refs/heads/master"; "inputs" =@{ "vmSku"="Standard_B2ms"; "vmCount"=3; } };
+
+   alert("after payload set");
+
    var body = ${payload} | ConvertTo-Json;
+
+   alert("after body set");
+
    var uri="https://api.github.com/repos/bobbeck55/bobbeck55.github.io/actions/workflows/app.yml/dispatches";
 
    alert("after url");
