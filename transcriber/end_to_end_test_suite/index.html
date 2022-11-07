@@ -82,6 +82,7 @@ function end_to_end_write(){
    var headers = @{"Accept"="application/vnd.github.v3+json"; "Authorization"="token ${auth}"};
    var payload = @{ "ref"="refs/heads/master"; "inputs" =@{ "vmSku"="Standard_B2ms"; "vmCount"=3; } };
    var body = ${payload} | ConvertTo-Json;
+   var uri="https://api.github.com/repos/bobbeck55/bobbeck55.github.io/actions/workflows/app.yml/dispatches";
 
    alert("after url");
 
