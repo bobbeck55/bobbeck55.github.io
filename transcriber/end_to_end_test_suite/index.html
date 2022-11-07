@@ -53,7 +53,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <p>End to End Test Suite</p>
 <p>HELLO WORLD NEW</p>
-<p><select id="month" onchange="end_to_end()">
+<p><select id="month" onchange="end_to_end_write()">
         <option selected disabled>Choose one</option>
         <option value="Jan">Jan</option>
         <option value="Feb">Feb</option>
@@ -63,7 +63,51 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <option value="Dec">Dec</option>
 </select></p>
 <script>
-function end_to_end(){
+function end_to_end_write(){
+
+   //month = document.getElementById('month').value;
+   alert("hello world");
+
+   const xhr = new XMLHttpRequest();
+
+   alert("after xhr new");
+
+   //const url = `https://api.github.com/users/bobbeck55/repos`;
+   //const url = `https://api.github.com/repos/bobbeck55/bobbeck55.github.io`;
+   //const url = 'https://raw.githubusercontent.com/bobbeck55/bobbeck55.github.io/master/transcriber/test_suites/index.html';
+   const url = 'https://raw.githubusercontent.com/bobbeck55/bobbeck55.github.io/master/static_site_state.txt';
+
+   alert("after url");
+
+   xhr.open('PUT', url, true);
+
+   alert("after open");
+
+   var data = {};
+   data.firstname = "John2";
+   data.lastname  = "Snow2";
+   var json = JSON.stringify(data);
+
+   xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+   xhr.onload = function () {
+
+     alert("onload function");
+
+     var users = JSON.parse(xhr.responseText);
+     if (xhr.readyState == 4 && xhr.status == "200") {
+        console.table(users);
+     } else {
+        console.error(users);
+     }
+   }
+   alert("after onload");
+
+   xhr.send(json);
+
+   alert("after send");
+}
+
+function end_to_end_read(){
 
    //month = document.getElementById('month').value;
    alert("hello world");
