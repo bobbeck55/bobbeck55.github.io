@@ -3,23 +3,23 @@ on:
     branches: [master]
     
   workflow_dispatch:
-
+    inputs:
+      vmSku:
+        description: 'Virtual Machine SKU'     
+        required: true
+        default: 'Standard_B2ms'
+      vmCount:
+        description: 'Virtual Machine Count'     
+        required: true
+        default: 2
 
 jobs:
   # Build job
   one:
     runs-on: ubuntu-latest
-    steps:
-    - name: "Echo in file"
-      run: echo "HELLOWORLD" > "secrets.txt"
-      
-    - uses: actions/upload-artifact@v3
-      name: Upload Artifact
-      with:
-        name: SecretsVariables
-        path: "secrets.txt"
+
   setup:
-    name: Setup Azure VM
+    name: Setup
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
