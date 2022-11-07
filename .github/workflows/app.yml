@@ -17,6 +17,9 @@ jobs:
   # Build job
   one:
     runs-on: ubuntu-latest
+    steps:
+    - name: echo
+      run: echo "Hello World"
 
   setup:
     name: Setup
