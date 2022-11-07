@@ -23,6 +23,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.head_ref }}
     - name: Run a one-line script
       run: echo "ONE" > new_file.txt
     - name: git config1
