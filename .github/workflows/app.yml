@@ -37,7 +37,9 @@ jobs:
       run: git commit -m "Auto updating TODO.txt"
     - name: fetch from master
       run: git fetch origin master
-    - name: push code to master
-      run: git push origin HEAD:master
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        force_with_lease: true
     - name: echo inputs
       run: echo "INPUTS"
