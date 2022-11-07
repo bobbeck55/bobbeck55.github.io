@@ -29,7 +29,7 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
     - name: Run a one-line script
-      run: echo "ONE" > new_file.txt
+      run: echo "ONE" >> new_file.txt
     - name: git config1
       run: git config user.name github-actions
     - name: git config2
