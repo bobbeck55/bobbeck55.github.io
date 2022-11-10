@@ -115,8 +115,8 @@ function end_to_end_write(octokit)
 async function github_post(octokit)
 {
 
-/*
-   response = await window.request('POST /repos/{owner}/{repo}/actions/workflows/app.yml/dispatches', {
+
+   response = await window.request('POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches', {
      owner: 'bobbeck55',
      repo: 'bobbeck55.github.io',
      workflow_id: 'app.yml',
@@ -126,7 +126,7 @@ async function github_post(octokit)
        "vmCount":3
      }
    });
-   */
+
 
    /* window.reqwuest("GET") returns without auth header
       window.request("POST") DOES NOT return with auth header (classic and fine grained token)
@@ -137,6 +137,18 @@ async function github_post(octokit)
    });
 
    console.log(`${result.data.length} repos found.`); 
+
+   /*
+   C:\Users\bob_b\bobbeck55.github.io>curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer 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" https://api.github.com/repos/bobbeck55/bobbeck55.github.io/issues/3/labels '-d{"labels:["bug"]}'
+{
+  "message": "Must have admin rights to Repository.",
+  "documentation_url": "https://docs.github.com/rest/reference/issues#add-labels-to-an-issue"
+}
+curl: (3) nested brace in URL position 12:
+'-d{labels:[bug]}'
+
+
+           */
 
    return response;
 
