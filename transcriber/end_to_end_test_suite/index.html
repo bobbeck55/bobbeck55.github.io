@@ -67,7 +67,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </select></p>
 <script>
 var patoken_value;
-var octokit;
+
 </script>
 
 <script type="module">
@@ -75,17 +75,8 @@ import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 import { request } from "https://cdn.skypack.dev/@octokit/request";
 
 window.Octokit = Octokit;
-window.request = request;
 
-   octokit = new window.Octokit({
-     auth: ''
-   });
 
-   const result = await request("GET /repos/{owner}/{repo}/issues/{number}", {
-     owner: 'bobbeck55',
-     repo: 'bobbeck55.github.io',
-     number: '3',
-   });
 
 </script>
 
@@ -104,11 +95,11 @@ function option_selected()
    });
    alert("after octokit construct");
 
-   end_to_end_write(patoken_value);
+   end_to_end_write(octokit);
 }
 
 
-function end_to_end_write(patoken_value)
+function end_to_end_write(octokit)
 {
    alert("end to end write test");
    const xhr = new XMLHttpRequest();
@@ -117,11 +108,11 @@ function end_to_end_write(patoken_value)
 
 
    alert(octokit.auth);
-   response = github_post(octokit, patoken_value);
+   response = github_post(octokit);
 
 }
 
-async function github_post(octokit, patoken_value)
+async function github_post(octokit)
 {
 
 /*
@@ -136,14 +127,13 @@ async function github_post(octokit, patoken_value)
      }
    });
    */
-   const result = await window.request("POST /repos/{owner}/{repo}/issues/{number}/labels", {
-     headers : {
-        authorization: "token " + patoken_value,
-     },
+
+   /* window.reqwuest("GET") returns without auth header
+      window.request("POST") DOES NOT return with auth header (classic and fine grained token)
+      */
+   const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
      owner: 'bobbeck55',
      repo: 'bobbeck55.github.io',
-     number: '3',
-     labels: ["bug", "enhancement"],
    });
 
    console.log(`${result.data.length} repos found.`); 
