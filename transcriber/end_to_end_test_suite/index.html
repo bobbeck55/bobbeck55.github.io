@@ -128,14 +128,12 @@ async function github_post(octokit)
      }
    });
    */
-   let response = await octokit.request('POST /repos/bobbeck55/bobbeck55.github.io/issues/3/labels', {
-     owner: 'bobbeck55',
-     repo: 'bobbeck55.github.io',
-     issue_number: '3',
-     labels: [
-      'bug',
-      'enhancement'
-   ]
+   let response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
+     owner: 'octokat',
+     repo: 'Spoon-Knife',
+     per_page: '2',
+     sort: : "updated",
+     direction : "asc",
   });
   let user = await response.json();
 
