@@ -128,7 +128,7 @@ async function github_post(octokit)
      }
    });
    */
-   let response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
+   let response = await window.request("GET /repos/{owner}/{repo}/issues", {
      owner: 'octokat',
      repo: 'Spoon-Knife',
      per_page: '2',
