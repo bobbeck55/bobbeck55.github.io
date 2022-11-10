@@ -128,13 +128,12 @@ async function github_post(octokit)
      }
    });
    */
-   const result = await window.octokit/request("GET /orgs/{org}/repos", {
-     org: "bobbeck55",
-     type: "private",
+   const result = await window.octokit/request("GET /repos/{owner}/{repo}/issues", {
+     owner: 'bobbeck55',
+     repo: 'bobbeck55.github.io',
    });
 
-console.log(`${result.data.length} repos found.`); 
-  let user = await response.json();
+   console.log(`${result.data.length} repos found.`); 
 
    return response;
 
