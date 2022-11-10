@@ -128,7 +128,7 @@ async function github_post(octokit)
      }
    });
    */
-   const result = await window.request("GET /orgs/{org}/repos", {
+   const result = await window.octokit/request("GET /orgs/{org}/repos", {
      headers: {
        authorization: "token 0000000000000000000000000000000000000001",
      },
