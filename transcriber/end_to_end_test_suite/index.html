@@ -136,7 +136,7 @@ async function github_post(octokit)
      }
    });
    */
-   const result = await window.octokit/request("GET /repos/{owner}/{repo}/issues/{number}", {
+   const result = await window.request("GET /repos/{owner}/{repo}/issues/{number}", {
      owner: 'bobbeck55',
      repo: 'bobbeck55.github.io',
      number: '3',
