@@ -128,13 +128,15 @@ async function github_post(octokit)
      }
    });
    */
-   let response = await window.request("GET /repos/{owner}/{repo}/issues", {
-     owner: 'octokat',
-     repo: 'Spoon-Knife',
-     per_page: '2',
-     sort: "updated",
-     direction : "asc",
-  });
+   const result = await window.request("GET /orgs/{org}/repos", {
+     headers: {
+       authorization: "token 0000000000000000000000000000000000000001",
+     },
+     org: "octokit",
+     type: "private",
+   });
+
+console.log(`${result.data.length} repos found.`); 
   let user = await response.json();
 
    return response;
