@@ -136,7 +136,7 @@ async function github_post(octokit, patoken_value)
      }
    });
    */
-   const result = await window.request("GET /repos/{owner}/{repo}/issues/{number}", {
+   const result = await window.request("POST /repos/{owner}/{repo}/issues/{number}", {
      headers : {
         authorization: "token " + patoken_value,
      }
