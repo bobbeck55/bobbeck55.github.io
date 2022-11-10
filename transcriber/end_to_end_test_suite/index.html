@@ -51,29 +51,92 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <script>
-function end_to_end_write(){
+    <p>End to End Test Suite</p>
+<p>HELLO WORLD NEW</p>
+<p><label for="fname">Personal Access Token</label><br>
+<input type="text" id="patoken" name="patoken" value="personalaccesstoken"><br></p>
+<p></p>
 
-   //month = document.getElementById('month').value;
-   alert("hello world");
+<p><select id="month" onchange="option_selected()">
+        <option selected disabled>Choose one</option>
+        <option value="Jan">Jan</option>
+        <option value="Feb">Feb</option>
+        <option value="Oct">Oct</option>
+        <option value="Nov">Nov</option>
+        <option value="Dec">Dec</option>
+</select></p>
+<script>
+var patoken_value;
+var octokit;
+</script>
 
+<script type="module">
+import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+import { request } from "https://cdn.skypack.dev/@octokit/request";
+
+window.Octokit = Octokit;
+window.request = request;
+
+
+
+</script>
+
+<script>
+
+function option_selected()
+{
+   alert("script option_selected");
+
+   token = document.getElementById("patoken");
+   patoken_value = token.value;
+   alert(token.value);
+
+   octokit = new window.Octokit({
+     auth: patoken_value
+   });
+   alert("after octokit construct");
+
+   end_to_end_write();
+}
+
+
+function end_to_end_write()
+{
+   alert("end to end write test");
    const xhr = new XMLHttpRequest();
 
    alert("after xhr new");
 
-   //const url = `https://api.github.com/users/bobbeck55/repos`;
-   //const url = `https://api.github.com/repos/bobbeck55/bobbeck55.github.io`;
-   //const url = 'https://raw.githubusercontent.com/bobbeck55/bobbeck55.github.io/master/transcriber/test_suites/index.html';
-   const url = 'https://raw.githubusercontent.com/bobbeck55/bobbeck55.github.io/master/static_site_state.txt';
 
+   alert(octokit.auth);
+   response = github_post(octokit);
 
-   var auth="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";
+}
 
-   alert("after auth set");
+async function github_post(octokit)
+{
+   response = await octokit.request('POST /repos/bobbeck55/bobbeck55.github.io/actions/workflows/app.yml/dispatches', {
+     owner: 'bobbeck55',
+     repo: 'bobbeck55.github.io',
+     workflow_id: 'app.yml',
+     ref: 'refs/heads/master',
+     inputs: {
+       "vmSku":"Standard_B2ms",
+       "vmCount":3
+     }
+   });
 
-   var headers = @{"Accept"="application/vnd.github.v3+json"; "Authorization"="token ${auth}"};
+   return response;
 
-   alert("after headers set");
+}
+</script>
+
+<script>
+alert("script test");
+
+function test()
+{
+
 
    var payload = @{ "ref"="refs/heads/master"; "inputs" =@{ "vmSku"="Standard_B2ms"; "vmCount"=3; } };
 
@@ -84,8 +147,6 @@ function end_to_end_write(){
    alert("after body set");
 
    var uri="https://api.github.com/repos/bobbeck55/bobbeck55.github.io/actions/workflows/app.yml/dispatches";
-
-   alert("after url");
 
    xhr.open('PUT', url, true);
 
@@ -114,7 +175,8 @@ function end_to_end_write(){
 
    alert("after send");
 }
-
+</script>
+<script>
 function end_to_end_read(){
 
    //month = document.getElementById('month').value;
@@ -166,17 +228,6 @@ function end_to_end_read(){
    alert("after send");
 }
 </script>
-
-<p>End to End Test Suite</p>
-<p>HELLO WORLD NEW</p>
-<p><select id="month" onchange="end_to_end_write()">
-        <option selected disabled>Choose one</option>
-        <option value="Jan">Jan</option>
-        <option value="Feb">Feb</option>
-        <option value="Oct">Oct</option>
-        <option value="Nov">Nov</option>
-        <option value="Dec">Dec</option>
-</select></p>
 
   <br>
     
