@@ -96,11 +96,11 @@ function option_selected()
    });
    alert("after octokit construct");
 
-   end_to_end_write();
+   end_to_end_write(patoken_value);
 }
 
 
-function end_to_end_write()
+function end_to_end_write(patoken_value)
 {
    alert("end to end write test");
    const xhr = new XMLHttpRequest();
@@ -109,7 +109,7 @@ function end_to_end_write()
 
 
    alert(octokit.auth);
-   response = github_post(octokit);
+   response = github_post(octokit, patoken_value);
 
 }
 
@@ -130,7 +130,7 @@ async function github_post(octokit)
    */
    const result = await window.octokit/request("GET /orgs/{org}/repos", {
      headers: {
-       authorization: "token 0000000000000000000000000000000000000001",
+       authorization: "token " + patoken_value,
      },
      org: "octokit",
      type: "private",
